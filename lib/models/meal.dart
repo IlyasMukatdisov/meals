@@ -10,6 +10,8 @@ enum Affordability {
   luxurious,
 }
 
+enum Filter { glutenFree, vegan, lactoseFree, vegetarian }
+
 class Meal {
   const Meal({
     required this.id,
