@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:meals/screens/widgets/meal_item.dart';
 import 'package:meals/models/meal.dart';
 import 'package:meals/screens/widgets/meals_grid.dart';
 
@@ -49,4 +48,3 @@ class MealsScreen extends StatelessWidget {
     );
   }
 }
-

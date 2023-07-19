@@ -8,26 +8,30 @@ class MealsNotifier extends Notifier<List<Meal>> {
     return dummyMeals;
   }
 
+  /*Function to filter the meals based on the filters selected by the user
+  
+  */
   List<Meal> filterMeals({
     bool? isGlutenFree,
     bool? isLactoseFree,
     bool? isVegan,
     bool? isVegetarian,
   }) {
-    //filter meals by 4 filters
-    return state
-        .where(
-          (e) => isGlutenFree != null
-              ? e.isGlutenFree == isGlutenFree
-              : true && isLactoseFree != null
-                  ? e.isLactoseFree == isLactoseFree
-                  : true && isVegan != null
-                      ? e.isVegan == isVegan
-                      : true && isVegetarian != null
-                          ? e.isVegetarian == isVegetarian
-                          : true,
-        )
-        .toList();
+    return state.where((meal) {
+      if (isGlutenFree != null && !meal.isGlutenFree) {
+        return false;
+      }
+      if (isLactoseFree != null && !meal.isLactoseFree) {
+        return false;
+      }
+      if (isVegan != null && !meal.isVegan) {
+        return false;
+      }
+      if (isVegetarian != null && !meal.isVegetarian) {
+        return false;
+      }
+      return true;
+    }).toList();
   }
 
   void addMeal(Meal meal) {
